@@ -113,8 +113,8 @@ cell_size = 40
 cell_number = 20
 screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
 clock = pygame.time.Clock()
-# fruit image
-img_file = 'Graphics/bl.png'
+# fruit image 
+img_file = 'Graphics/apple.png'
 # # when you want the img to come from a URL
 # img_url = 'URL GOES HERE'
 # img_str = urlopen(img_url).read()
