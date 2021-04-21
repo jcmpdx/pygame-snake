@@ -114,13 +114,13 @@ cell_number = 20
 screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
 clock = pygame.time.Clock()
 # fruit image 
-img_file = 'Graphics/apple.png'
+img_file = 'Graphics/bloodlust_hexagon.png'
 # # when you want the img to come from a URL
 # img_url = 'URL GOES HERE'
 # img_str = urlopen(img_url).read()
 # img_file = io.BytesIO(img_str)
 fruit = pygame.image.load(img_file).convert_alpha()
-fruit = pygame.transform.scale(fruit, (int(cell_number*2.0), int(cell_number*2.0)))
+fruit = pygame.transform.scale(fruit, (int(cell_number*2.2), int(cell_number*2.4)))
 
 SCREEN_UPDATE = pygame.USEREVENT
 pygame.time.set_timer(SCREEN_UPDATE, 150)
