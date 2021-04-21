@@ -2,7 +2,7 @@ import pygame, sys, random, io
 from pygame.math import Vector2
 from urllib.request import urlopen
 
-# start
+# start of code
 
 class SNAKE:
     def __init__(self):
