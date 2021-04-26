@@ -114,6 +114,7 @@ class MAIN:
         self.draw_grass()
         self.fruit.draw_fruit()
         self.snake.draw_snake()
+        self.draw_score()
 
     def check_collision(self):
         if self.fruit.pos == self.snake.body[0]: # if head of snake collides with fruit pos
@@ -146,6 +147,13 @@ class MAIN:
                         grass_rect = pygame.Rect(col * cell_size,row * cell_size,cell_size,cell_size)
                         pygame.draw.rect(screen,grass_color,grass_rect)              
 
+    def draw_score(self):
+        score_text = str(len(self.snake.body) - 3)
+        score_surface = game_font.render(score_text, True, (56,74,12)) #font name, anti-aliasing, font color
+        score_x = int(cell_size * cell_number - 60)
+        score_y = int(cell_size * cell_number - 40)
+        score_rect = score_surface.get_rect(center = (score_x, score_y))
+        screen.blit(score_surface, score_rect)
 
 pygame.init()
 cell_size = 40
@@ -160,6 +168,7 @@ img_file = 'Graphics/bloodlust_hexagon.png'
 # img_file = io.BytesIO(img_str)
 fruit = pygame.image.load(img_file).convert_alpha()
 fruit = pygame.transform.scale(fruit, (int(cell_number*2.2), int(cell_number*2.4)))
+game_font = pygame.font.Font(None, 28) # font-type and font-size
 
 SCREEN_UPDATE = pygame.USEREVENT
 pygame.time.set_timer(SCREEN_UPDATE, 150)
