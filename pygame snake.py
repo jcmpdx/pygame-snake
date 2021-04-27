@@ -153,7 +153,13 @@ class MAIN:
         score_x = int(cell_size * cell_number - 60)
         score_y = int(cell_size * cell_number - 40)
         score_rect = score_surface.get_rect(center = (score_x, score_y))
+        fruit_rect = fruit.get_rect(midright = (score_rect.left,score_rect.centery))
+        bg_rect = pygame.Rect(fruit_rect.left,fruit_rect.top,fruit_rect.width + score_rect.width + 6,fruit_rect.height)
+
+        pygame.draw.rect(screen,(167,209,61),bg_rect)
         screen.blit(score_surface, score_rect)
+        screen.blit(fruit, fruit_rect)
+        pygame.draw.rect(screen,(56,74,12),bg_rect,2)
 
 pygame.init()
 cell_size = 40
