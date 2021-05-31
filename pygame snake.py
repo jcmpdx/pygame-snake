@@ -8,24 +8,28 @@ class SNAKE:
         self.direction = Vector2(0,0)
         self.new_block = False
 
-        self.head_up = pygame.image.load('Graphics/head_up.png').convert_alpha()
-        self.head_down = pygame.image.load('Graphics/head_down.png').convert_alpha()
-        self.head_right = pygame.image.load('Graphics/head_right.png').convert_alpha()
-        self.head_left = pygame.image.load('Graphics/head_left.png').convert_alpha()
+        self.head_up = pygame.image.load('Graphics/orc_u.png').convert_alpha()
+        self.head_down = pygame.image.load('Graphics/orc_d.png').convert_alpha()
+        self.head_right = pygame.image.load('Graphics/orc_r.png').convert_alpha()
+        self.head_left = pygame.image.load('Graphics/orc_l.png').convert_alpha()
 		
-        self.tail_up = pygame.image.load('Graphics/tail_up.png').convert_alpha()
-        self.tail_down = pygame.image.load('Graphics/tail_down.png').convert_alpha()
-        self.tail_right = pygame.image.load('Graphics/tail_right.png').convert_alpha()
-        self.tail_left = pygame.image.load('Graphics/tail_left.png').convert_alpha()
+        self.tail_up = pygame.image.load('Graphics/bone4.png').convert_alpha()
+        self.tail_down = pygame.image.load('Graphics/bone4.png').convert_alpha()
+        self.tail_right = pygame.image.load('Graphics/bone4.png').convert_alpha()
+        self.tail_left = pygame.image.load('Graphics/bone4.png').convert_alpha()
         
-        self.body_vertical = pygame.image.load('Graphics/body_vertical.png').convert_alpha()
-        self.body_horizontal = pygame.image.load('Graphics/body_horizontal.png').convert_alpha()
+        self.body_vertical = pygame.image.load('Graphics/bone1.png').convert_alpha()
+        self.body_horizontal = pygame.image.load('Graphics/bone1.png').convert_alpha()
         
-        self.body_tr = pygame.image.load('Graphics/body_tr.png').convert_alpha()
-        self.body_tl = pygame.image.load('Graphics/body_tl.png').convert_alpha()
-        self.body_br = pygame.image.load('Graphics/body_br.png').convert_alpha()
-        self.body_bl = pygame.image.load('Graphics/body_bl.png').convert_alpha()
-        self.crunch_sound = pygame.mixer.Sound('Sound/crunch.wav')
+        self.body_tr = pygame.image.load('Graphics/bone1.png').convert_alpha()
+        self.body_tl = pygame.image.load('Graphics/bone1.png').convert_alpha()
+        self.body_br = pygame.image.load('Graphics/bone1.png').convert_alpha()
+        self.body_bl = pygame.image.load('Graphics/bone1.png').convert_alpha()
+        self.crunch_soundA = pygame.mixer.Sound('Sound/OrcMaleAttackA.ogg')
+        self.crunch_soundB = pygame.mixer.Sound('Sound/OrcMaleAttackB.ogg')
+        self.crunch_soundC = pygame.mixer.Sound('Sound/OrcMaleAttackC.ogg')
+        self.crunch_soundD = pygame.mixer.Sound('Sound/OrcMaleAttackD.ogg')
+        self.crunch_sound = True
 
     def draw_snake(self):
         self.update_head_graphics()
@@ -87,6 +91,7 @@ class SNAKE:
         self.new_block = True
 
     def play_crunch_sound(self):
+        self.crunch_sound = random.choice([self.crunch_soundA, self.crunch_soundB, self.crunch_soundC, self.crunch_soundD])
         self.crunch_sound.play()
 
     def reset(self):
