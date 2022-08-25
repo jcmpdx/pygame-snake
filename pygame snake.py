@@ -2,6 +2,7 @@ import pygame, sys, random, io
 from pygame.math import Vector2
 from urllib.request import urlopen
 
+# build snake model
 class SNAKE:
     def __init__(self):
         self.body = [Vector2(5,10), Vector2(4,10), Vector2(3,10)]
